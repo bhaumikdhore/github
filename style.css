@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fixed Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #00ff5e2f;
+  color: rgb(18, 140, 20);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  /* padding-left: 20px; */
+}
+
+/* Layout below header */
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* Fixed Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #222;
+  color: white;
+  position: fixed;
+  top: 60px;   /* below header */
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  z-index: 5;
+  overflow-y: auto;
+}
+
+/* Scrollable Content */
+.content-box {
+  margin-left: 200px; /* space for sidebar */
+  padding: 20px;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: #7d6464;
+  z-index: 1;
+  position: relative;
+}
+
+/* Allow content to scroll "under" header */
+.content-box::before {
+  content: '';
+  display: block;
+  height: 60px; /* height of header */
+}
+
